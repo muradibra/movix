@@ -1,0 +1,31 @@
+// .item-genres {
+//   display: flex;
+//   flex-flow: wrap;
+//   justify-content: flex-end;
+//   position: absolute;
+//   z-index: 22222;
+//   bottom: 25px;
+//   gap: 5px;
+//   right: 2px;
+//   .genre {
+//     background-color: var(--pink);
+//     padding: 3px 5px;
+//     font-size: 12px;
+//     border-radius: 4px;
+//     color: #fff;
+//     white-space: nowrap;
+//   }
+// }
+
+.item-genres {
+  display: flex;
+  gap: 5px;
+  .genre {
+      background-color: var(--pink);
+      padding: 3px 5px;
+      font-size: 12px;
+      border-radius: 4px;
+      color: #fff;
+      white-space: nowrap;
+  }
+}

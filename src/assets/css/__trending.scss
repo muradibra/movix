@@ -1,0 +1,16 @@
+.trending {
+    .content-wrapper {
+        display: flex;
+        justify-content: space-between;
+        color: #fff;    
+        margin-bottom: 20px;
+
+        // .slider-wrapper {
+        //     margin-bottom: 70px;
+        // }
+
+        .slider-title {
+            font-weight: 500;
+        }
+    }
+}

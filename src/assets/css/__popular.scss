@@ -1,0 +1,12 @@
+.popular {
+    .content-wrapper {
+        display: flex;
+        justify-content: space-between;
+        color: #fff;    
+        margin-bottom: 20px;
+
+        .slider-title {
+            font-weight: 500;
+        }
+    }
+}
