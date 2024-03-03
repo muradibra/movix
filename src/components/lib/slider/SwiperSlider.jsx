@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/bundle';
+import { BsArrowLeft, BsArrowRight } from 'react-icons/bs'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import PosterFallback from '../../../assets/img/no-poster.png';
 import CircleRating from '../circleRating/CircleRating';
 import Genres from '../../pages/home/genres/Genres';
+import Img from '../lazyLoadImg/Img';
 
 
-function SwiperSlider({ data, loading }) {
+function SwiperSlider({ data, loading, endpoint }) {
     const { imgUrls } = useSelector(state => state.home);
     const navigate = useNavigate();
 
@@ -37,7 +39,10 @@ function SwiperSlider({ data, loading }) {
             // onSlideChange={() => console.log('slide change')}
             // onSwiper={(swiper) => console.log(swiper)}
             // scrollbar={{draggable: true}}
-            navigation
+            navigation={{
+                prevEl: '.swiper-btn-prev',
+                nextEl: '.swiper-btn-next',
+            }}
             breakpoints={{
                 375: {
                     slidesPerView: 2.5,
@@ -67,7 +72,6 @@ function SwiperSlider({ data, loading }) {
             {
                 !loading > 0 ? (
                     data?.map(item => {
-                        console.log("loading 1", loading)
                         const itemPosterUrl = item.poster_path ?
                             imgUrls?.poster + item.poster_path : PosterFallback
 
@@ -75,12 +79,10 @@ function SwiperSlider({ data, loading }) {
                             <SwiperSlide key={item.id}>
                                 <div
                                     className='slider-item'
-                                    onClick={() => navigate(`/${item.media_type}/${item.id}`)}
+                                    onClick={() => navigate(`/${item.media_type || endpoint}/${item.id}`)}
                                 >
                                     <div className="poster-block">
-                                        <div className='item-img'>
-                                            <img src={itemPosterUrl} alt="" loading='lazy' />
-                                        </div>
+                                        <Img src={itemPosterUrl} />
                                         <CircleRating rating={item.vote_average.toFixed(1)} />
                                         <Genres data={item.genre_ids.slice(0, 2)} />
                                     </div>
@@ -93,24 +95,31 @@ function SwiperSlider({ data, loading }) {
                                         </span>
                                     </div>
                                 </div>
+
                             </SwiperSlide>
                         )
                     })
                 ) : (
-                    // <div></div>
                     <>
-                        {/* <div className='loadingSkeleton'> */}
-                            {/* {console.log("loading 2", loading)} */}
-                            {/* <SwiperSlide>{skItem()}</SwiperSlide> */}
-                            {
-                                [1, 2, 3, 4, 5].map(index => (
-                                    <SwiperSlide key={index}>{skItem()}</SwiperSlide>
-                                ))
-                            }
-                        {/* </div> */}
+                        {
+                            [1, 2, 3, 4, 5].map(index => (
+                                <SwiperSlide key={index}>{skItem()}</SwiperSlide>
+                            ))
+                        }
                     </>
                 )
             }
+
+            <div className='swiper-btn-prev'>
+                <button>
+                    <BsArrowLeft />
+                </button>
+            </div>
+            <div className='swiper-btn-next'>
+                <button>
+                    <BsArrowRight />
+                </button>
+            </div>
         </Swiper>
     )
 }

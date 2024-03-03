@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import ContentWrapper from "../../lib/contentWrapper/ContentWrapper";
 
+
 const Footer = () => {
   return (
     <footer className="footer">

@@ -8,29 +8,8 @@ import { fetchDataFromApi } from '../../../utils/api'
 
 function Trending() {
     const [endpoint, setEndpoint] = useState('day');
-    // const [trendingData, setTrendingData] = useState([]);
-
-    // const BASE_URL = 'https://api.themoviedb.org/3';
-    // const TMDB_TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
-
-    // const headers = {
-    //     Authorization: 'bearer ' + TMDB_TOKEN,
-    // }
     const { data: trendingData, loading: trendingLoading } = useFetch(`/trending/all/${endpoint}`)
-    console.log(trendingLoading)
-
-    // useEffect(() => {
-    //     fetchDataFromApi(`/trending/all/${endpoint}`)
-    //     .then(resp => setTrendingData(resp))
-    //     // axios.get(BASE_URL + `/trending/all/${endpoint}`,
-    //     //     {
-    //     //         headers,
-    //     //         // params
-    //     //     }
-    //     // ).then(resp => {
-    //     //     if(resp.status === 200) setTrendingData(resp.data)
-    //     // })
-    // }, [])
+    // console.log(trendingLoading)
 
     const onTabChange = (tab) => {
         tab === "Day" ? setEndpoint('day') : setEndpoint('week');

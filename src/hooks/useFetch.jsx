@@ -3,22 +3,22 @@ import { fetchDataFromApi } from "../components/utils/api";
 
 const useFetch = (url) => {
     const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true); // Set loading to true initially
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        setLoading(true);
+        setLoading(true); // Set loading to true before fetching data
         setData(null);
         setError(null);
 
         fetchDataFromApi(url)
             .then((res) => {
-                setLoading(false);
                 setData(res);
+                setLoading(false); // Set loading to false after data is fetched
             })
             .catch((err) => {
-                setLoading(false);
                 setError("Something went wrong!", err.message);
+                setLoading(false); // Set loading to false if there's an error
             });
             
     }, [url]);

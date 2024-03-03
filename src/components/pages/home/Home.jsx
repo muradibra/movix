@@ -2,6 +2,7 @@ import React from 'react'
 import HomeBanner from './homeBanner/HomeBanner'
 import Trending from './trending/Trending'
 import Popular from './popular/Popular'
+import TopRated from './topRated/TopRated'
 
 function Home() {
 
@@ -10,6 +11,7 @@ function Home() {
       <HomeBanner />
       <Trending />
       <Popular />
+      <TopRated />
     </div>
   )
 }

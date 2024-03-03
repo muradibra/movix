@@ -55,10 +55,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path='/:type/:id' element={<Details />} />
+        <Route path='/:mediaType/:id' element={<Details />} />
       </Routes>
 
-      {/* <Footer /> */}
+      <Footer />
 
     </div>
   )

@@ -24,6 +24,7 @@ function Trending() {
                 <SwiperSlider
                     data={popularData?.results}
                     loading={popularLoading}
+                    endpoint={endpoint}
                 />
             </ContentWrapper>
         </div>

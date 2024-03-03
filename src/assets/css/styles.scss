@@ -1,13 +1,40 @@
-@import './_mixins';
-@import './_contentWrapper';
-@import './_header';
-@import './_footer';
-@import './_home';
-@import './_homeBanner';
-@import './_trending';
-@import './_switchTabs';
-@import './_swiperSlide';
-@import './_circleRating';
-@import './_genres';
-@import './_popular';
+@import "./_mixins";
+@import "./_contentWrapper";
+@import "./_header";
+@import "./_footer";
+@import "./_home";
+@import "./_homeBanner";
+@import "./_trending";
+@import "./_switchTabs";
+@import "./_swiperSlide";
+@import "./_circleRating";
+@import "./_genres";
+@import "./_popular";
+@import './_detailsBanner';
+@import './_videoPopup';
+@import './_cast';
+@import './_videosSection';
 
+.swiper-btn-prev.swiper-button-disabled,
+.swiper-btn-next.swiper-button-disabled {
+  display: none;
+}
+
+.swiper-btn-prev,
+.swiper-btn-next {
+  // display: none;
+  button {
+    cursor: pointer;
+    border: none;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #000;
+    opacity: .5;
+    svg {
+      color: #fff;
+      font-size: 20px;
+    }
+  }
+}

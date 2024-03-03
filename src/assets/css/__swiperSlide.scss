@@ -4,6 +4,20 @@
   margin-left: -20px;
   margin-right: -20px;
   padding: 0 20px;
+  position: relative;
+
+  .swiper-btn-prev, .swiper-btn-next {
+    position: absolute;
+    top: 40%;
+    z-index: 222;
+  }
+  .swiper-btn-prev {
+    left: 25px;
+  }
+  .swiper-btn-next {
+    right: 25px;
+  }
+
   .swiper-slide {
     // .loadingSkeleton {
     // display: flex;
@@ -65,17 +79,19 @@
       align-items: flex-end;
       justify-content: space-between;
       padding: 10px;
-      .item-img {
-        width: 100%;
-        height: 100%;
+      .lazy-load-image-background {
         position: absolute;
         top: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
         overflow: hidden;
         img {
           width: 100%;
           height: 100%;
-          border-radius: 12px;
+          object-fit: cover;
+          object-position: center;
         }
       }
       .item-genres {
@@ -110,6 +126,11 @@
 
       .item-title {
         @include ellipsis(1);
+      }
+
+      .item-date {
+        font-size: 14px;
+        opacity: 0.5;
       }
     }
   }
